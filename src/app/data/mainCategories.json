@@ -1,0 +1,17 @@
+{
+    "mainCategory1":{
+        "explenation":"aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa aaa ",
+        "subCategories":[{
+            "SubCategory1":{
+                "explenation":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+                "functions" : "asdasd"
+            }
+        }]
+    },
+    "mainCategory2":{
+        "explenation":"bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb bbb "
+    },
+    "mainCategory3":{
+        "explenation":"ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc ccc "
+    }
+}

@@ -1,0 +1,84 @@
+<p>formulas works!</p>
+
+<form [formGroup]='fg'>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Formulas filter</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-form-field appearance="fill">
+        <mat-label>Main categories</mat-label>
+        <mat-select [(value)]="selectedMainCategory" formControlName='mainCategory' (selectionChange)="onMainCategoryChange($event)">
+          <mat-option>--</mat-option>
+          <!-- <mat-option value='All'>All</mat-option> -->
+          <mat-option *ngFor="let mainCategory of allFormulas | extract:'mainCategory' | unique" [value]="mainCategory">
+            {{mainCategory}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-content>
+      <mat-form-field appearance="fill">
+        <mat-label>Sub categories</mat-label>
+        <!-- <mat-select [(value)]="selectedSubCategory" disabled='{{selectedMainCategory === "All"}}' required> -->
+        <mat-select [(value)]="selectedSubCategory" formControlName='subCategory' (selectionChange)="onSubCategoryChange($event)">
+
+          <!-- <mat-option value='All'>All</mat-option> -->
+          <!-- <mat-option
+            *ngFor="let subCategory of allFormulas | filter: {...(selectedMainCategory !== '' && {'mainCategory':selectedMainCategory})} | extract:'subCategory' | unique"
+            [value]="subCategory">
+            {{subCategory}}
+          </mat-option> -->
+          <!-- <mat-option
+          *ngFor="let subCategory of allFormulas | filter: {'mainCategory':selectedMainCategory} | extract:'subCategory' | unique"
+          [value]="subCategory">
+          {{subCategory}}
+        </mat-option> -->
+        <mat-option
+        *ngFor="let subCategory of allFormulas | filter: subCategoriesFilter | extract:'subCategory' | unique"
+        [value]="subCategory">
+        {{subCategory}}
+      </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-content>
+      <mat-form-field appearance="fill">
+        <mat-label>All formulas</mat-label>
+        <!-- <mat-select [(value)]="selectedFormula" disabled='{{selectedSubCategory === "All"}}' required> -->
+        <mat-select [(value)]="selectedFormula" formControlName='formula' (selectionChange)="onFormulaChange($event)">
+
+          <!-- <mat-option value='All'>All</mat-option> -->
+          <!-- <mat-option
+            *ngFor="let formula of allFormulas | filter: {'mainCategory':selectedMainCategory, 'subCategory': selectedSubCategory}"
+            [value]="formula.text">
+            {{formula.text}}
+          </mat-option> -->
+          <mat-option
+          *ngFor="let formula of allFormulas | filter: formulaFilter"
+          [value]="formula.text">
+          {{formula.text}}
+        </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-content>
+      <mat-form-field appearance="fill">
+        <mat-label>Test</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let t of test | unique" [value]="t">
+            {{t}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-actions>
+
+    </mat-card-actions>
+  </mat-card>
+</form>

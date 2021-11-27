@@ -1,0 +1,39 @@
+
+<div class="container-fluid">
+    <div class="row justify-content-md-center">
+        <div class="col col-sm-11 col-md-11 col-lg-11 col-xl-10">
+            <app-personal-data></app-personal-data>
+        </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+        <div class="col col-sm-11 col-md-11 col-lg-11 col-xl-10">
+            <app-formulas></app-formulas>
+        </div>
+    </div>
+
+
+    <form [formGroup]="myForm">
+
+        <mat-form-field appearance='standard'>
+            <!-- <mat-label>Birth date</mat-label> -->
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <input matInput #birthDate [matDatepicker]='picker' formControlName="birthDate">
+            <mat-error *ngIf="birthDateFormControl?.hasError('required')">
+                Field is mandatory
+            </mat-error>
+        </mat-form-field>
+
+
+        <button mat-raised-button color='primary' class="w-100 m-auto" (click)="test()">
+            test
+        </button>
+    </form>
+
+    {{formula1}}<br>
+    {{formula2}}<br>
+    {{formula3}}<br>
+    {{formula4}}<br>
+
+</div>

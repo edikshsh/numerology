@@ -1,0 +1,40 @@
+<p>personal-data works!</p>
+<form [formGroup]="myForm">
+
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title>Personal data</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-form-field appearance='standard' class="d-block">
+                <mat-label>first name</mat-label>
+                <input matInput formControlName="firstName">
+            </mat-form-field><br>
+
+            <mat-form-field appearance='standard' class="d-block">
+                <mat-label>last name</mat-label>
+                <input matInput formControlName="lastName">
+            </mat-form-field><br>
+
+            <mat-form-field appearance='standard'>
+                <mat-label>birth date</mat-label>
+                <mat-datepicker-toggle matSuffix [for]="birthDatePicker"></mat-datepicker-toggle>
+                <mat-datepicker #birthDatePicker></mat-datepicker>
+                <input matInput [matDatepicker]='birthDatePicker' formControlName="birthDate">
+            </mat-form-field><br>
+
+            <mat-form-field appearance='standard'>
+                <mat-label>personal date</mat-label>
+                <mat-datepicker-toggle matSuffix [for]="personalDatePicker"></mat-datepicker-toggle>
+                <mat-datepicker #personalDatePicker></mat-datepicker>
+                <input matInput [matDatepicker]='personalDatePicker' formControlName="personalDate">
+            </mat-form-field><br>
+
+        </mat-card-content>
+
+        <mat-card-actions>
+
+        </mat-card-actions>
+    </mat-card>
+
+</form>
