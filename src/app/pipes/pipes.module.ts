@@ -16,6 +16,7 @@ let allPipes = [
   imports: [
     CommonModule
   ],
-  exports:allPipes
+  exports:allPipes,
+  providers:allPipes
 })
 export class PipesModule { }

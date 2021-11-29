@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 // import {createTestData, MCat} from '../../models/formulas2'
 import { createTestData, FormulaOld } from '../../models/formulas'
 import { FormBuilder, Validators } from '@angular/forms'
@@ -7,11 +7,11 @@ import { FormulasService } from 'src/app/services/formulas.service';
 
 
 @Component({
-  selector: 'app-formulas',
-  templateUrl: './formulas.component.html',
-  styleUrls: ['./formulas.component.css']
+  selector: 'app-formula-filter',
+  templateUrl: './formula-filter.component.html',
+  styleUrls: ['./formula-filter.component.css']
 })
-export class FormulasComponent implements OnInit {
+export class FormulaFilterComponent implements OnInit {
 
   // allFormulas:FormulaOld[] = createTestData();
   allFormulas: FormulaOld[] = this.formulaService.getFormulasSimplified()
@@ -24,8 +24,8 @@ export class FormulasComponent implements OnInit {
   subCategoriesFilter: {} = {}
   formulaFilter: {} = {}
 
+  @Output() formulaFilterChangedEvent = new EventEmitter<{}>(); 
 
-  test = ['a', 'b', 'v', 'b', 'a']
   constructor(private fb: FormBuilder, private formulaService: FormulasService) {
   }
 
@@ -78,6 +78,8 @@ export class FormulasComponent implements OnInit {
       ...((this.selectedMainCategory !== '' && this.selectedMainCategory !== undefined) && { 'mainCategory': this.selectedMainCategory }),
       ...((this.selectedSubCategory !== '' && this.selectedMainCategory !== undefined) && { 'subCategory': this.selectedSubCategory })
     }
+
+    this.formulaFilterChangedEvent.emit(this.formulaFilter)
   }
 
   setMainCategorySearch(str:string) {

@@ -9,7 +9,7 @@ import { MainComponent } from './components/main/main.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormulasComponent } from './components/formulas/formulas.component';
+import { FormulaFilterComponent } from './components/formula-filter/formula-filter.component';
 import { PersonalDataComponent } from './components/personal-data/personal-data.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {NgPipesModule} from 'angular-pipes'
@@ -19,7 +19,7 @@ import {PipesModule} from './pipes/pipes.module'
   declarations: [
     AppComponent,
     MainComponent,
-    FormulasComponent,
+    FormulaFilterComponent,
     PersonalDataComponent
     ],
   imports: [
