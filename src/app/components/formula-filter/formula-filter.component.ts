@@ -76,7 +76,8 @@ export class FormulaFilterComponent implements OnInit {
     this.subCategoriesFilter = { ...((this.selectedMainCategory !== '' && this.selectedMainCategory !== undefined) && { 'mainCategory': this.selectedMainCategory }) }
     this.formulaFilter = {
       ...((this.selectedMainCategory !== '' && this.selectedMainCategory !== undefined) && { 'mainCategory': this.selectedMainCategory }),
-      ...((this.selectedSubCategory !== '' && this.selectedMainCategory !== undefined) && { 'subCategory': this.selectedSubCategory })
+      ...((this.selectedSubCategory !== '' && this.selectedSubCategory !== undefined) && { 'subCategory': this.selectedSubCategory }),
+      ...((this.selectedFormula !== '' && this.selectedFormula !== undefined) && { 'name': this.selectedFormula })
     }
 
     this.formulaFilterChangedEvent.emit(this.formulaFilter)
