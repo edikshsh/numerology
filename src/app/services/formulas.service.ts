@@ -35,15 +35,15 @@ export class FormulasService {
     this.subCategories.set('SubCategory3', s3)
     this.subCategories.set('SubCategory4', s4)
 
-    let f1 = new TestFormula1('Formula1', s1)
-    let f2 = new TestFormula2('Formula2', s2)
-    let f3 = new TestFormula3('Formula3', s3)
-    let f4 = new TestFormula4('Formula4', s3)
-    let f5 = new TestFormula5('Formula5', s4)
+    let f1 = new TestFormula1('Formula1', 'Description of Formula1', s1)
+    let f2 = new TestFormula2('Formula2', 'Description of Formula2', s2)
+    let f3 = new TestFormula3('Formula3', 'Description of Formula3', s3)
+    let f4 = new TestFormula4('Formula4', 'Description of Formula4', s3)
+    let f5 = new TestFormula5('Formula5', 'Description of Formula5', s4)
 
     for(let i =0;i<40;i++){
       let formulaName: string = `Formula5${i}`
-      let testFormula:BaseFormula = new TestFormula5(`Formula5${i}`,s4)
+      let testFormula:BaseFormula = new TestFormula5(`Formula5${i}`, `Description of Formula5${i}`,s4)
       this.formulas.set(formulaName, testFormula)
     }
     

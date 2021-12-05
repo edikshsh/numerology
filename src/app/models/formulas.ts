@@ -20,7 +20,7 @@
 
 class FormulaOld {
 
-    constructor(public mainCategory: string, public subCategory: string, public text?: string) {
+    constructor(public mainCategory: string, public subCategory: string, public name?: string) {
 
     }
 }

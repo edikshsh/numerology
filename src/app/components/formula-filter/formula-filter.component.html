@@ -54,13 +54,13 @@
           <!-- <mat-option value='All'>All</mat-option> -->
           <!-- <mat-option
             *ngFor="let formula of allFormulas | filter: {'mainCategory':selectedMainCategory, 'subCategory': selectedSubCategory}"
-            [value]="formula.text">
-            {{formula.text}}
+            [value]="formula.name">
+            {{formula.name}}
           </mat-option> -->
           <mat-option
           *ngFor="let formula of allFormulas | filter: formulaFilter"
-          [value]="formula.text">
-          {{formula.text}}
+          [value]="formula.name">
+          {{formula.name}}
         </mat-option>
         </mat-select>
       </mat-form-field>

@@ -3,7 +3,7 @@ import { SubCategory } from "./subCategory";
 
 export class BaseFormula implements FormulaInterface{
 
-    constructor(public name: string, public parent: SubCategory) {}
+    constructor(public name: string, public description: string, public parent: SubCategory) {}
     
     calculate({...params}) {
         return 'a';

@@ -43,9 +43,9 @@
         
                 <mat-card-content>
                     <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
-                        <div *cdkVirtualFor="let formula of formulas" class="example-item">{{formula.text}}</div>
+                        <div *cdkVirtualFor="let formula of formulas" class="example-item">{{formula.name}}</div>
                     </cdk-virtual-scroll-viewport>
-                    <!-- <p *ngFor='let a of formulas'>{{a.text}}</p> -->
+                    <!-- <p *ngFor='let a of formulas'>{{a.name}}</p> -->
                 </mat-card-content>
             </mat-card>
         </div>
