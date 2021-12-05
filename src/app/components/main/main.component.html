@@ -49,8 +49,16 @@
                 </mat-card-content>
             </mat-card>
         </div>
-        <!-- <div class="col col-sm-11 col-md-6 col-lg-6 col-xl-6">
-        </div> -->
+        <div class="col col-sm-11 col-md-6 col-lg-6 col-xl-6">
+            <mat-card class="example-card" *ngIf='testChosenFormula !== undefined'>
+                <mat-card-header>
+                    <mat-card-title>{{testChosenFormula.name}}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <app-formula [formula]=testChosenFormula></app-formula>
+                </mat-card-content>
+            </mat-card>
+        </div>
     </div>
 
 

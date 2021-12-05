@@ -74,6 +74,11 @@ export class FormulasService {
     return this.subCategories.get(subCategory)?.parent.name === mainCategory
   }
 
+
+  testGetFirstFormula(){
+    return this.formulas.get('Formula1');
+  }
+
   // isFormulaInSubCategory(formula:string, subCategory:string, lenient:boolean = true){
   //   let subCategoryName = this.subCategories.get(formula)?.parent.name
   //   if (lenient && (!subCategoryName || !subCategory)){

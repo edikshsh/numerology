@@ -15,13 +15,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {NgPipesModule} from 'angular-pipes'
 import {ScrollingModule} from '@angular/cdk/scrolling'
 
-import {PipesModule} from './pipes/pipes.module'
+import {PipesModule} from './pipes/pipes.module';
+import { FormulaComponent } from './components/formula/formula.component'
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     FormulaFilterComponent,
-    PersonalDataComponent
+    PersonalDataComponent,
+    FormulaComponent
     ],
   imports: [
     BrowserModule,

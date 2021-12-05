@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BaseFormula } from 'src/app/models/baseFormula';
 import { FormulaOld } from 'src/app/models/formulas';
 import { FilterPipe } from 'src/app/pipes/filter-pipe';
 import { FormulasService } from 'src/app/services/formulas.service';
@@ -24,10 +25,13 @@ export class MainComponent implements OnInit {
 
   formulas: FormulaOld[] = []
 
+  testChosenFormula?:BaseFormula
+
 
   constructor(private _fb: FormBuilder, private formulasService: FormulasService, private filterPipe:FilterPipe) {
     // this.birthDate = new Date();
     this.formulas = formulasService.getFormulasSimplified()
+    this.testChosenFormula = formulasService.testGetFirstFormula();
   }
 
   ngOnInit(): void {
