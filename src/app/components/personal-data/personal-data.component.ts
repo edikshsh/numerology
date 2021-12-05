@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PersonalData } from 'src/app/models/personalData';
+import { PersonalDataService } from 'src/app/services/personal-data.service';
 
 @Component({
   selector: 'app-personal-data',
@@ -15,8 +17,10 @@ export class PersonalDataComponent implements OnInit {
   birthDate: Date;
   personalDate: Date;
 
+  personalData?: PersonalData;
 
-  constructor(private _fb: FormBuilder) {
+
+  constructor(private _fb: FormBuilder, private personalDataService: PersonalDataService) {
     this.firstName = '';
     this.lastName = '';
     this.birthDate = new Date()
@@ -38,6 +42,17 @@ export class PersonalDataComponent implements OnInit {
         birthDate: this._fb.control(this.birthDate, [Validators.required]),
         personalDate: this._fb.control(this.personalDate, [Validators.required]),
       });
+
+      this.myForm.valueChanges.subscribe(val => {
+        console.log(val.firstName);
+        console.log(val.lastName);
+        console.log(val.birthDate);
+        console.log(val.personalDate);
+        this.personalData = new PersonalData(val.firstName, val.lastName, val.birthDate, val.personalDate)
+        this.personalDataService.setPersonalData(this.personalData)
+      });
     }
+
+
 
 }
