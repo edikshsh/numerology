@@ -11,6 +11,8 @@ export class FormulaListComponent implements OnInit {
   @Input() formulas?: BaseFormula[]
   @Output() selectedFormulaEvent = new EventEmitter<BaseFormula>(); 
 
+  selectedFormulaName:string = ''
+
   constructor() { }
 
   ngOnInit(): void {
@@ -20,5 +22,6 @@ export class FormulaListComponent implements OnInit {
 
   selectedFormula(formula:BaseFormula){
     this.selectedFormulaEvent.emit(formula)
+    this.selectedFormulaName = formula.name;
   }
 }

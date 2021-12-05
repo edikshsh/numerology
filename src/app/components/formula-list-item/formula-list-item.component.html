@@ -1,5 +1,5 @@
 <div>
-    <mat-card (click)=onClick()>
+    <mat-card (click)=onClick() class='{{isEven? "even" : "not-even" }} {{isSelected? "selected" : "not-selected" }}' >
         <mat-card-content>
             {{formula?.name}}
         </mat-card-content>

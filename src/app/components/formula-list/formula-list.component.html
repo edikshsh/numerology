@@ -1,7 +1,10 @@
 <p>formula-list works!</p>
 <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
-    <div *cdkVirtualFor="let formula of formulas" class="example-item">
+    <div *cdkVirtualFor="let formula of formulas; let index = index" class="example-item">
         <!-- {{formula.name}} -->
-        <app-formula-list-item [formula]='formula' (selectedFormulaEvent)=selectedFormula(formula)></app-formula-list-item>
+        <app-formula-list-item [formula]='formula' 
+        [isSelected]='formula.name === selectedFormulaName'
+        [isEven]='index%2 == 0'
+        (selectedFormulaEvent)=selectedFormula(formula)></app-formula-list-item>
     </div>
 </cdk-virtual-scroll-viewport>

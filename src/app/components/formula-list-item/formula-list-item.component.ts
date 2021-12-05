@@ -9,10 +9,14 @@ import { BaseFormula } from 'src/app/models/baseFormula';
 export class FormulaListItemComponent implements OnInit {
 
   @Input() formula?:BaseFormula
+  @Input() isSelected:boolean = false
+  @Input() isEven:boolean = false
+
   @Output() selectedFormulaEvent = new EventEmitter<BaseFormula>();  
   constructor() { }
 
   ngOnInit(): void {
+    // let a = this.isSelected? 'a' : 'b'
   }
 
   onClick(){
