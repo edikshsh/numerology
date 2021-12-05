@@ -23,19 +23,21 @@ export class MainComponent implements OnInit {
   // birthDate: Date;
   // get birthDateFormControl(): AbstractControl | null { return this.myForm.get('birthDate') };
 
-  formulas: FormulaOld[] = []
+  formulas: BaseFormula[] = []
 
   testChosenFormula?:BaseFormula
 
 
   constructor(private _fb: FormBuilder, private formulasService: FormulasService, private filterPipe:FilterPipe) {
     // this.birthDate = new Date();
-    this.formulas = formulasService.getFormulasSimplified()
+    // this.formulas = formulasService.getFormulasSimplified()
     this.testChosenFormula = formulasService.testGetFirstFormula();
   }
 
   ngOnInit(): void {
     this.initForm();
+    this.changeFormulaFilter({})
+
   }
 
   /**
@@ -96,7 +98,14 @@ export class MainComponent implements OnInit {
   }
 
   changeFormulaFilter(newFilter:{}){
-    this.formulas = this.filterPipe.transform(this.formulasService.getFormulasSimplified(), newFilter) 
+
+    let oldFormatFormulas = this.formulasService.getFormulasSimplified()
+    let oldFormatFormulasFiltered = this.filterPipe.transform(oldFormatFormulas, newFilter)
+    this.formulas = this.formulasService.formulasSimplifiedToRegular(oldFormatFormulasFiltered)
+  }
+
+  selectFormula(formula:BaseFormula){
+    this.testChosenFormula = formula
   }
 
 }

@@ -16,14 +16,18 @@ import {NgPipesModule} from 'angular-pipes'
 import {ScrollingModule} from '@angular/cdk/scrolling'
 
 import {PipesModule} from './pipes/pipes.module';
-import { FormulaComponent } from './components/formula/formula.component'
+import { FormulaComponent } from './components/formula/formula.component';
+import { FormulaListItemComponent } from './components/formula-list-item/formula-list-item.component';
+import { FormulaListComponent } from './components/formula-list/formula-list.component'
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     FormulaFilterComponent,
     PersonalDataComponent,
-    FormulaComponent
+    FormulaComponent,
+    FormulaListItemComponent,
+    FormulaListComponent
     ],
   imports: [
     BrowserModule,
