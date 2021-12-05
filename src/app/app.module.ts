@@ -13,6 +13,7 @@ import { FormulaFilterComponent } from './components/formula-filter/formula-filt
 import { PersonalDataComponent } from './components/personal-data/personal-data.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {NgPipesModule} from 'angular-pipes'
+import {ScrollingModule} from '@angular/cdk/scrolling'
 
 import {PipesModule} from './pipes/pipes.module'
 @NgModule({
@@ -32,7 +33,8 @@ import {PipesModule} from './pipes/pipes.module'
     BrowserAnimationsModule,
     NgbModule,
     NgPipesModule,
-    PipesModule
+    PipesModule,
+    ScrollingModule
     
   ],
   providers: [],

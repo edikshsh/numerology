@@ -1,15 +1,14 @@
 <div class="container-fluid">
     <div class="row justify-content-md-center">
-        <div class="col col-sm-11 col-md-11 col-lg-11 col-xl-10">
+        <div class="col col-sm-11 col-md-6 col-lg-6 col-xl-6">
             <app-personal-data></app-personal-data>
         </div>
-    </div>
-
-    <div class="row justify-content-md-center">
-        <div class="col col-sm-11 col-md-11 col-lg-11 col-xl-10">
+        <div class="col col-sm-11 col-md-6 col-lg-6 col-xl-6">
             <app-formula-filter (formulaFilterChangedEvent)=changeFormulaFilter($event)></app-formula-filter>
         </div>
     </div>
+
+    <br>
 
 
     <!-- <form [formGroup]="myForm">
@@ -35,14 +34,25 @@
     {{formula3}}<br>
     {{formula4}}<br> -->
 
-    <mat-card class="example-card">
-        <mat-card-header>
-            <mat-card-title>Formulas</mat-card-title>
-        </mat-card-header>
+    <div class="row justify-content-md-left">
+        <div class="col col-sm-11 col-md-6 col-lg-6 col-xl-6">
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <mat-card-title>Formulas</mat-card-title>
+                </mat-card-header>
+        
+                <mat-card-content>
+                    <cdk-virtual-scroll-viewport itemSize="50" class="example-viewport">
+                        <div *cdkVirtualFor="let formula of formulas" class="example-item">{{formula.text}}</div>
+                    </cdk-virtual-scroll-viewport>
+                    <!-- <p *ngFor='let a of formulas'>{{a.text}}</p> -->
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <!-- <div class="col col-sm-11 col-md-6 col-lg-6 col-xl-6">
+        </div> -->
+    </div>
 
-        <mat-card-content>
-            <p *ngFor='let a of formulas'>{{a.text}}</p>
-        </mat-card-content>
-    </mat-card>
+
 
 </div>
