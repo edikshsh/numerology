@@ -16,18 +16,30 @@ import {NgPipesModule} from 'angular-pipes'
 import {ScrollingModule} from '@angular/cdk/scrolling'
 
 import {PipesModule} from './pipes/pipes.module';
-import { FormulaComponent } from './components/formula/formula.component';
 import { FormulaListItemComponent } from './components/formula-list-item/formula-list-item.component';
-import { FormulaListComponent } from './components/formula-list/formula-list.component'
+import { FormulaListComponent } from './components/formula-list/formula-list.component';
+import { FormulaBaseComponent } from './components/all-formulas/formula-base/formula-base.component';
+import { FormulaTest1Component } from './components/all-formulas/formulas/formula-test1/formula-test1.component';
+import { FormulaTest2Component } from './components/all-formulas/formulas/formula-test2/formula-test2.component';
+import { FormulaTest3Component } from './components/all-formulas/formulas/formula-test3/formula-test3.component';
+import { FormulaTest4Component } from './components/all-formulas/formulas/formula-test4/formula-test4.component';
+import { FormulaTest5Component } from './components/all-formulas/formulas/formula-test5/formula-test5.component';
+// import {FormulasModule} from './components/all-formulas/formulas.module'
+
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     FormulaFilterComponent,
     PersonalDataComponent,
-    FormulaComponent,
     FormulaListItemComponent,
-    FormulaListComponent
+    FormulaListComponent,
+    FormulaBaseComponent,
+    FormulaTest1Component,
+    FormulaTest2Component,
+    FormulaTest3Component,
+    FormulaTest4Component,
+    FormulaTest5Component
     ],
   imports: [
     BrowserModule,
@@ -41,8 +53,7 @@ import { FormulaListComponent } from './components/formula-list/formula-list.com
     NgPipesModule,
     PipesModule,
     ScrollingModule
-    
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
