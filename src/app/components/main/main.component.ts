@@ -66,36 +66,6 @@ export class MainComponent implements OnInit {
   //   this.formula4 = '4: ' + this.reduceNumberArrayToSingleDigitSpecial(selectedDate.getDate(),selectedDate.getMonth() + 1,selectedDate.getFullYear())
   // }
 
-  reduceNumberArrayToSingleDigit(...args: number[]): number {
-    let result = 0
-    args.forEach(num => {
-      result += this.reduceNumberToSingleDigit(num)
-    });
-
-    return this.reduceNumberToSingleDigit(result);
-  }
-
-  reduceNumberArrayToSingleDigitSpecial(...args: number[]): number {
-    let result = 0
-    args.forEach(num => {
-      result += this.reduceNumberToSingleDigit(num)
-    });
-
-    return this.reduceNumberToSingleDigit(result,[11,22]);
-  }
-
-  reduceNumberToSingleDigit(num: number, ignore:number[] = []) {
-    while (num >= 10 && !ignore.find((ignoredNumber) => num == ignoredNumber)) {
-      let tempResult = 0;
-      while (num != 0) {
-        tempResult += num % 10
-        num = Math.floor(num / 10)
-      }
-      num = tempResult
-    }
-    console.log('reduceNumberToSingleDigit returning ' + num)
-    return num;
-  }
 
   changeFormulaFilter(newFilter:{}){
 

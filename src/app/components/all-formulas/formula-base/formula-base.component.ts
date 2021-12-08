@@ -16,9 +16,10 @@ export class FormulaBaseComponent implements OnInit {
   @Input() set formula(value: BaseFormula) {
     
        this._formula = value;
+       this.formulasService.selectedFormula = value;
        this.router.navigate(['formulas',this._formula?.componentName])    
     }
-  @Input() _formula?: BaseFormula;
+  _formula?: BaseFormula;
 
   constructor(private formulasService: FormulasService, private router :Router) { }
 

@@ -15,6 +15,8 @@ export class FormulasService {
   subCategories: Map<string, SubCategory> = new Map();
   mainCategories: Map<string, MainCategory> = new Map();
 
+  selectedFormula?:BaseFormula = undefined;
+
   constructor() {
     this.initFormulas();
   }
