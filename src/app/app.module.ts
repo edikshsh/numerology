@@ -24,6 +24,7 @@ import { FormulaTest2Component } from './components/all-formulas/formulas/formul
 import { FormulaTest3Component } from './components/all-formulas/formulas/formula-test3/formula-test3.component';
 import { FormulaTest4Component } from './components/all-formulas/formulas/formula-test4/formula-test4.component';
 import { FormulaTest5Component } from './components/all-formulas/formulas/formula-test5/formula-test5.component';
+import { LifePeriodTableRangeCellComponent } from './components/all-formulas/formulas/formula-test2/life-period-table-range-cell/life-period-table-range-cell.component';
 // import {FormulasModule} from './components/all-formulas/formulas.module'
 
 @NgModule({
@@ -39,7 +40,8 @@ import { FormulaTest5Component } from './components/all-formulas/formulas/formul
     FormulaTest2Component,
     FormulaTest3Component,
     FormulaTest4Component,
-    FormulaTest5Component
+    FormulaTest5Component,
+    LifePeriodTableRangeCellComponent
     ],
   imports: [
     BrowserModule,

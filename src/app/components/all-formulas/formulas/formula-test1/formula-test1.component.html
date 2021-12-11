@@ -1,9 +1,10 @@
 <p>formula-test1 works!</p>
-<p>Matana: {{matana1}}</p>
-<p *ngIf='matana2 && matana1 !== matana2'>Matana: {{matana2}}</p>
-<p>matanaNisteret: {{matanaNisteret}}</p>
+<p>Matana: {{matana1}} - {{matanot.get(matana1)}}</p>
+<p *ngIf='matana2 && matana1 !== matana2'>Matana: {{matana2}} - {{matanot.get(matana2)}}</p>
+<p *ngIf='matanaNisteret'>Matana nisteret: {{matanaNisteret}}</p>
 <p *ngIf='master'>Master: {{master}}</p>
-<p>Etgar: {{etgar}}</p>
+<p *ngIf='etgar'>Etgar: {{etgar}}</p>
 <p>Kshaiim: {{kshaiim}}</p>
 <p>Kvutsat neshamot: {{kvutsatNeshamot}}</p>
+<p>Nativ goral: {{nativGoral}} {{master? '| ' + master : ''}}</p>
 

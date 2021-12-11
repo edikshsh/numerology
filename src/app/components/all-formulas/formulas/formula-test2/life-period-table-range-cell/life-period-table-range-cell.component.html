@@ -1,0 +1,15 @@
+<!-- <p>life-period-table-range-cell works!</p> -->
+{{range[0]}} - {{range[1]}}
+<span *ngIf='showBashlut' class='bashlut'><br>{{bashlut}}</span>
+<span *ngIf='gilGoralyArr.length !== 0'><br></span>
+<span *ngIf='gilGoralyArr.length !== 0' class='gilGorali'>
+    <span *ngFor='let gil of gilGoralyArr; let i = index'>{{gil}}<span *ngIf='i < gilGoralyArr.length-1'>,</span></span>
+</span>
+<span *ngIf='showShnotGoral' class='shnotGoral'>
+    <span *ngIf='showShnotGoral'><br></span>
+    <span
+        *ngIf='showShnotGoral && shnotGoralInRange[0] === shnotGoral[0] && shnotGoralInRange[0] < range[1]'>{{shnotGoralInRange[0]}}
+        - </span>
+    <!-- <span *ngIf='showShnotGoral'> - </span> -->
+    <span *ngIf='showShnotGoral && shnotGoralInRange[1] === shnotGoral[1]'>{{shnotGoralInRange[1]}}</span>
+</span>

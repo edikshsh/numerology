@@ -54,10 +54,14 @@ export class CalculationsService {
       //   num = Math.floor(num / 10)
       // }
       // num = tempResult
-      num = this.toDigits(num).reduce((sum, num) => sum += num)
+      num = this.sumDigits(num)
     }
     console.log('reduceNumberToSingleDigit returning ' + num)
     return num;
+  }
+
+  sumDigits(num:number){
+    return num = this.toDigits(num).reduce((sum, num) => sum += num)
   }
 
   toDigits(num: number) {
@@ -80,7 +84,22 @@ export class CalculationsService {
     if (num > max) num -= dif * (Math.ceil((num - max) / dif))
     if (num < min) num += dif * (Math.ceil((min - num) / dif))
     return num;
-
   }
 
+  gilGorali1(date:Date){
+    return date.getDate();
+  }
+  gilGorali2(date:Date){
+    return this.gilGorali1(date) + date.getMonth() + 1;
+  }
+  gilGorali3(date:Date){
+    return this.gilGorali2(date) + this.keepInRange(date.getFullYear(),1,9);
+  }
+  gilGorali4(date:Date){
+    return this.sumDigits(date.getDate()) + this.sumDigits(date.getMonth() + 1) + this.sumDigits(date.getFullYear())
+  }
+
+  nativGoral(date:Date){
+    return this.keepInRange(this.gilGorali4(date),1,9)
+  }
 }

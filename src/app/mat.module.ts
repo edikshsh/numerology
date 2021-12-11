@@ -11,6 +11,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card'
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
+
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatToolbarModule} from '@angular/material/toolbar'
 import { BidiModule } from '@angular/cdk/bidi';
@@ -18,6 +20,7 @@ import { BidiModule } from '@angular/cdk/bidi';
 
 const modules = [
   MatDialogModule,
+  MatTableModule,
   MatProgressSpinnerModule,
   MatFormFieldModule,
   MatInputModule,
