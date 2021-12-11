@@ -43,7 +43,7 @@ export class FormulaTest2Component implements OnInit {
 
   displayedData: LifePeriodTableRow[] = []
 
-  constructor(private formulasService: FormulasService, private personalDataService: PersonalDataService, private calc: CalculationsService) {
+  constructor(private formulasService: FormulasService, private data: PersonalDataService, private calc: CalculationsService) {
     this.formula = formulasService.selectedFormula;
     // this.buildOtherData()
 
@@ -51,67 +51,78 @@ export class FormulaTest2Component implements OnInit {
 
   ngOnInit(): void {
     this.refreshData();
-    this.personalDataService.register(()=>this.refreshData())
+    this.data.register(()=>this.refreshData())
   }
 
   refreshData(){
     console.log('Test formula 2 refreshing data');
-    this.buildOtherData()
-    this.buildLifePeriods();
+    // this.buildOtherData()
+    // this.buildLifePeriods();
+
+    this.personalData = this.data.personalData
+    this.gilBashlut = this.data.gilBashlut
+    this.shnotGoral = this.data.shnotGoral
+    this.gilGoraly = this.data.gilGoraly;
+    this.bashlut = this.data.gilBashlut
+    this.lifePeriods = this.data.lifePeriods;
+
+
     this.builtTable();
   }
 
   buildOtherData(){
-    this.personalData = this.personalDataService.personalData || new PersonalData('fname', 'lname');
-    this.gilBashlut = 27 - this.calc.nativGoral(this.personalData.birthdate);
-    this.shnotGoral = [45 - this.calc.nativGoral(this.personalData.birthdate), 50 - this.calc.nativGoral(this.personalData.birthdate)];
-    this.gilGoraly = [this.calc.gilGorali1(this.personalData.birthdate),
-    this.calc.gilGorali2(this.personalData.birthdate),
-    this.calc.gilGorali3(this.personalData.birthdate),
-    this.calc.gilGorali4(this.personalData.birthdate)]
-    this.bashlut = 27-this.calc.nativGoral(this.personalData.birthdate)
+    // this.personalData = this.data.personalData || new PersonalData('fname', 'lname');
+    // this.gilBashlut = 27 - this.calc.nativGoral(this.personalData.birthdate);
+    // this.shnotGoral = [45 - this.calc.nativGoral(this.personalData.birthdate), 50 - this.calc.nativGoral(this.personalData.birthdate)];
+    // this.gilGoraly = [this.calc.gilGorali1(this.personalData.birthdate),
+    // this.calc.gilGorali2(this.personalData.birthdate),
+    // this.calc.gilGorali3(this.personalData.birthdate),
+    // this.calc.gilGorali4(this.personalData.birthdate)]
+    // this.bashlut = 27-this.calc.nativGoral(this.personalData.birthdate)
+
+
 
   }
 
-  buildLifePeriods(){
+  // buildLifePeriods(){
 
-    let day = this.personalData.birthdate.getDate()
-    let month = this.personalData?.birthdate?.getMonth() + 1
-    let year = this.personalData?.birthdate?.getFullYear()
+  //   let day = this.personalData.birthdate.getDate()
+  //   let month = this.personalData?.birthdate?.getMonth() + 1
+  //   let year = this.personalData?.birthdate?.getFullYear()
 
-    this.lifePeriods = [];
-    this.lifePeriods.push(new LifePeriod('Meatsev',
-      0,
-      36 - this.calc.nativGoral(this.personalData.birthdate),
-      this.calc.keepInRange(day + month, 1, 9),
-      Math.abs(this.calc.keepInRange(day,1,9) - this.calc.keepInRange(month,1,9)),
-      this.calc.keepInRange(month, 1, 9)
-    ))
+  //   this.lifePeriods = [];
+  //   this.lifePeriods.push(new LifePeriod('Meatsev',
+  //     0,
+  //     36 - this.calc.nativGoral(this.personalData.birthdate),
+  //     this.calc.keepInRange(day + month, 1, 9),
+  //     Math.abs(this.calc.keepInRange(day,1,9) - this.calc.keepInRange(month,1,9)),
+  //     this.calc.keepInRange(month, 1, 9)
+  //   ))
 
-    this.lifePeriods.push(new LifePeriod('Yotser1',
-      this.lifePeriods[0].end,
-      this.lifePeriods[0].end + 9,
-      this.calc.keepInRange(day + year, 1, 9),
-      Math.abs(this.calc.keepInRange(day,1,9) - this.calc.keepInRange(year,1,9)),
-      this.calc.keepInRange(day, 1, 9)
-    ))
+  //   this.lifePeriods.push(new LifePeriod('Yotser1',
+  //     this.lifePeriods[0].end,
+  //     this.lifePeriods[0].end + 9,
+  //     this.calc.keepInRange(day + year, 1, 9),
+  //     Math.abs(this.calc.keepInRange(day,1,9) - this.calc.keepInRange(year,1,9)),
+  //     this.calc.keepInRange(day, 1, 9)
+  //   ))
 
-    this.lifePeriods.push(new LifePeriod('Yotser2',
-      this.lifePeriods[1].end,
-      this.lifePeriods[1].end + 9,
-      this.calc.keepInRange(this.lifePeriods[0].pisga + this.lifePeriods[1].pisga, 1, 9),
-      Math.abs(this.lifePeriods[0].etgar -this.lifePeriods[1].etgar),
-      this.calc.keepInRange(day, 1, 9)
-    ))
+  //   this.lifePeriods.push(new LifePeriod('Yotser2',
+  //     this.lifePeriods[1].end,
+  //     this.lifePeriods[1].end + 9,
+  //     this.calc.keepInRange(this.lifePeriods[0].pisga + this.lifePeriods[1].pisga, 1, 9),
+  //     Math.abs(this.lifePeriods[0].etgar -this.lifePeriods[1].etgar),
+  //     this.calc.keepInRange(day, 1, 9)
+  //   ))
 
-    this.lifePeriods.push(new LifePeriod('Katsir',
-      this.lifePeriods[2].end,
-      120,
-      this.calc.keepInRange(month + year, 1, 9),
-      Math.abs(this.calc.keepInRange(month,1,9) - this.calc.keepInRange(year,1,9)),
-      this.calc.keepInRange(year, 1, 9)
-    ))
-  }
+  //   this.lifePeriods.push(new LifePeriod('Katsir',
+  //     this.lifePeriods[2].end,
+  //     120,
+  //     this.calc.keepInRange(month + year, 1, 9),
+  //     Math.abs(this.calc.keepInRange(month,1,9) - this.calc.keepInRange(year,1,9)),
+  //     this.calc.keepInRange(year, 1, 9)
+  //   ))
+  // }
 
 
   builtTable() {
