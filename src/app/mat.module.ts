@@ -14,8 +14,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 
 import { MatNativeDateModule } from '@angular/material/core';
+
 import {MatToolbarModule} from '@angular/material/toolbar'
 import { BidiModule } from '@angular/cdk/bidi';
+import { MomentDateModule  } from '@angular/material-moment-adapter';
 
 
 const modules = [
@@ -34,7 +36,8 @@ const modules = [
   MatIconModule,
   BidiModule,
   MatCardModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MomentDateModule
 ]
 @NgModule({
   imports: [
@@ -44,7 +47,8 @@ const modules = [
   exports: [
     ...modules
   ],
-  providers: [{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } }],
+  providers: [{ provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
+],
   declarations: [
 
   ]
