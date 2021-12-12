@@ -1,1 +1,49 @@
 <p>formula-test3 works!</p>
+
+<!-- <app-pythagoras-matrix-cell [num]=num [text]=text [color]=color> </app-pythagoras-matrix-cell>
+
+<div class="row justify-content-md-left" *ngFor='let row of mat; let i = index'>
+    <div class="col col-sm-4 col-md-4 col-lg-4 col-xl-4" *ngFor='let cell of row; let j = index'>
+        <app-pythagoras-matrix-cell [num]=cell [text]=texts[i][j] [color]=colors[i][j]> </app-pythagoras-matrix-cell>
+        <mat-divider [vertical]="true"></mat-divider>
+    </div>
+    <mat-divider></mat-divider>
+</div>
+<mat-divider [vertical]="true"></mat-divider> -->
+
+
+
+<table mat-table [dataSource]="displayedData" class="mat-elevation-z8">
+
+
+
+
+    <ng-container matColumnDef="c1">
+        <th mat-header-cell *matHeaderCellDef class=""> c1 </th>
+        <td mat-cell *matCellDef="let element">
+            <app-pythagoras-matrix-cell [traits]=element[0]>
+            </app-pythagoras-matrix-cell>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="c2">
+        <th mat-header-cell *matHeaderCellDef> c2 </th>
+        <td mat-cell *matCellDef="let element">
+            <app-pythagoras-matrix-cell [traits]=element[1]>
+            </app-pythagoras-matrix-cell>
+        </td>
+    </ng-container>
+
+    <ng-container matColumnDef="c3">
+        <th mat-header-cell *matHeaderCellDef> c3 </th>
+        <td mat-cell *matCellDef="let element">
+            <app-pythagoras-matrix-cell [traits]=element[2]>
+            </app-pythagoras-matrix-cell>
+        </td>
+    </ng-container>
+
+
+    <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr> -->
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>

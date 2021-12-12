@@ -1,1 +1,9 @@
 <p>formula-test4 works!</p>
+<form [formGroup]="myForm">
+    <mat-form-field appearance='standard'>
+        <mat-label>Other birth date</mat-label>
+        <mat-datepicker-toggle matSuffix [for]="otherBirthDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #otherBirthDatePicker></mat-datepicker>
+        <input matInput [matDatepicker]='otherBirthDatePicker' formControlName="otherBirthDate">
+    </mat-form-field><br>
+</form>

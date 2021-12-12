@@ -10,21 +10,21 @@ export class PersonalDataService {
 
   private _personalData : PersonalData = new PersonalData('fname','lname');
   private _cb:Function = ()=>{}
-  private funcs : HelperFunctions = new HelperFunctions()
+  public funcs : HelperFunctions = new HelperFunctions()
 
-  _matana1:number = 0
-  _matana2?:number = 0
-  _matanaNisteret?:number = 0
-  _master?:number = 0
-  _etgar:number = 0
-  _kshaiim:number = 0
-  _kvutsatNeshamot:number = 0
-  _nativGoral:number = 0
-  _shnotGoral: number[] = []
-  _gilGoraly: number[] = []
-  _gilBashlut: number = 0;
+  private _matana1:number = 0
+  private _matana2?:number = 0
+  private _matanaNisteret?:number = 0
+  private _master?:number = 0
+  private _etgar:number = 0
+  private _kshaiim:number = 0
+  private _kvutsatNeshamot:number = 0
+  private _nativGoral:number = 0
+  private _shnotGoral: number[] = []
+  private _gilGoraly: number[] = []
+  private _gilBashlut: number = 0;
   // matanot = matanot
-  _lifePeriods: LifePeriod[] = []
+  private _lifePeriods: LifePeriod[] = []
 
   get matana1(){return this._matana1}
   get matana2(){return this._matana2}

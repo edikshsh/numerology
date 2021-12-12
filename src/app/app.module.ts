@@ -25,6 +25,7 @@ import { FormulaTest3Component } from './components/all-formulas/formulas/formul
 import { FormulaTest4Component } from './components/all-formulas/formulas/formula-test4/formula-test4.component';
 import { FormulaTest5Component } from './components/all-formulas/formulas/formula-test5/formula-test5.component';
 import { LifePeriodTableRangeCellComponent } from './components/all-formulas/formulas/formula-test2/life-period-table-range-cell/life-period-table-range-cell.component';
+import { PythagorasMatrixCellComponent } from './components/all-formulas/formulas/formula-test3/pythagoras-matrix-cell/pythagoras-matrix-cell.component';
 // import {FormulasModule} from './components/all-formulas/formulas.module'
 
 @NgModule({
@@ -41,7 +42,8 @@ import { LifePeriodTableRangeCellComponent } from './components/all-formulas/for
     FormulaTest3Component,
     FormulaTest4Component,
     FormulaTest5Component,
-    LifePeriodTableRangeCellComponent
+    LifePeriodTableRangeCellComponent,
+    PythagorasMatrixCellComponent
     ],
   imports: [
     BrowserModule,
