@@ -2,3 +2,27 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+table.w12 {
+    width: 100%;
+}
+
+table.w6 {
+    width: 50%;
+}
+
+table.w4 {
+    width: 33.33333%;
+}
+
+table.w3 {
+    width: 25%;
+}
+
+table.center>tbody>tr>td, table.center>thead>tr>th{
+    text-align: center;
+}
+
+table.box>tbody>tr>td, table.box>thead>tr>th{
+    border: 1px solid currentColor;
+}
