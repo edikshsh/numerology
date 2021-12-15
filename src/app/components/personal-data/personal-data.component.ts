@@ -79,9 +79,9 @@ export class PersonalDataComponent implements OnInit {
       // console.log(val.lastName);
       // console.log(val.birthDate);
       // console.log(val.personalDate);
-      console.log(`firstName = ${this.firstName}`);
-      console.log(`lastName = ${this.lastName}`);
-      console.log(`birthDate = ${this.birthDate}`);
+      // console.log(`firstName = ${this.firstName}`);
+      // console.log(`lastName = ${this.lastName}`);
+      // console.log(`birthDate = ${this.birthDate}`);
 
       this.personalData = new PersonalData(this.firstName, this.lastName, this.birthDate.toDate())
 

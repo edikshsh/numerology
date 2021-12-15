@@ -1,5 +1,16 @@
 <p>formula-test5 works!</p>
+<p>Shana nisteret: {{shanaNisteret}}</p>
+<p>Shana ishit: {{personalYear}}</p>
 
-{{shownDate}}
-{{personalYear}}<br>
-{{shanaNisteret}}
+<h2><span *ngFor='let a of shanaNisteretArr'>
+    <span *ngIf = 'a === shanaNisteret' style='color:red'>{{a}} </span>
+    <span *ngIf = 'a !== shanaNisteret'>{{a}} </span>
+</span></h2>
+
+<h2><span *ngFor='let a of shanaIshitArr'>
+    <span *ngIf = 'a === personalYear' style='color:red'>{{a}} </span>
+    <span *ngIf = 'a !== personalYear'>{{a}} </span>
+</span></h2>
+
+<!-- <p>shanaNisteretArr = {{shanaNisteretArr}}</p>
+<p>shanaIshitArr = {{shanaIshitArr}}</p> -->

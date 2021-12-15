@@ -3,7 +3,7 @@ import { BaseFormula } from '../models/baseFormula'
 import { MainCategory } from '../models/mainCategory';
 import { SubCategory } from '../models/subCategory';
 
-import { TestFormula1, TestFormula2, TestFormula3, TestFormula4, TestFormula5 } from '../models/formulas/allFormulas'
+import { TestFormula1, TestFormula2, TestFormula3, TestFormula4, TestFormula5, TestFormula6 } from '../models/formulas/allFormulas'
 import { FormulaOld } from '../models/formulas';
 
 @Injectable({
@@ -42,6 +42,7 @@ export class FormulasService {
     let f3 = new TestFormula3('Formula3', 'Description of Formula3', s3)
     let f4 = new TestFormula4('Formula4', 'Description of Formula4', s3)
     let f5 = new TestFormula5('Formula5', 'Description of Formula5', s4)
+    let f6 = new TestFormula6('Formula6', 'Description of Formula6', s4)
 
     for (let i = 0; i < 40; i++) {
       let formulaName: string = `Formula5${i}`
@@ -54,6 +55,8 @@ export class FormulasService {
     this.formulas.set('Formula3', f3)
     this.formulas.set('Formula4', f4)
     this.formulas.set('Formula5', f5)
+    this.formulas.set('Formula6', f6)
+
   }
 
   getFormulasSimplified() {

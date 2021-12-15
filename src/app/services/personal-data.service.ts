@@ -58,8 +58,8 @@ export class PersonalDataService {
   constructor() { }
 
   setPersonalData(newPersonalData:PersonalData){
-    console.log(`Got new data with bday=${newPersonalData.birthDate.day}`);
-    console.log(`Got new data ${newPersonalData.firstname} ${newPersonalData.lastname}`);
+    // console.log(`Got new data with bday=${newPersonalData.birthDate.day}`);
+    // console.log(`Got new data ${newPersonalData.firstname} ${newPersonalData.lastname}`);
 
     this._personalData = newPersonalData;
     this.refreshCalculations()
@@ -69,7 +69,11 @@ export class PersonalDataService {
   // set personalData(newPersonalData:PersonalData){this._personalData = newPersonalData;}
   get personalData(){return this._personalData}
 
-  register(cb:Function){this._cb=cb}
+  register(cb:Function){
+    console.log('Registering new callback');
+    
+    this._cb=cb
+  }
 
   refreshCalculations(){
     let bdate = this.personalData.birthDate

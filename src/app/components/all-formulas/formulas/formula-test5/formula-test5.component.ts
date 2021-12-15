@@ -9,43 +9,55 @@ import * as moment from 'moment';
 })
 export class FormulaTest5Component implements OnInit {
 
-  personalDate: Date
-  shownDate:string
+  personalDate: Date = new Date()
+  shownDate:string = ''
 
-  personalYear:number
-  shanaNisteret:number
+  personalYear:number = 0
+  shanaNisteret:number = 0
+
+  shanaNisteretArr: number[] = []
+  shanaIshitArr = [1,2,3,4,5,6,7,8,9]
 
   constructor(private data: PersonalDataService) {
 
+   }
+
+  ngOnInit(): void {
+    this.refreshData()
+    this.data.register(()=>this.refreshData())
+    // this.data.register(this.refreshData)
+  }
+
+  refreshData(){
     let currDate = new Date();
     let currDay = currDate.getDate()
     let currMonth = currDate.getMonth() + 1
     let currYear = currDate.getFullYear()
 
     let pYear = currDate.getFullYear() - 1
-    if (data.personalData.birthDate.month >= 7) {
+    console.log(this.data);
+    
+    if (this.data.personalData.birthDate.month >= 7) {
       pYear += 1;
     }
-    if (currMonth > data.personalData.birthDate.month ||
-      (currMonth === data.personalData.birthDate.month && currDay > data.personalData.birthDate.day)) {
+    if (currMonth > this.data.personalData.birthDate.month ||
+      (currMonth === this.data.personalData.birthDate.month && currDay > this.data.personalData.birthDate.day)) {
       pYear += 1;
     }
 
-    let pMonth = data.funcs.keepInRange(currMonth + pYear)
+    let pMonth = this.data.funcs.keepInRange(currMonth + pYear)
     let pDay = currDay // need to fix
 
     this.personalDate = new Date(pYear, pMonth, pDay);
     this.shownDate = moment(this.personalDate).format('DD.MM.YYYY')
     
-    this.personalYear = data.funcs.keepInRange(data.funcs.keepInRange(pYear) + data.personalData.birthDate.day + data.personalData.birthDate.month)
-    this.shanaNisteret = data.funcs.keepInRange(this.personalYear + data.nativGoral - 1)
-   }
+    this.personalYear = this.data.funcs.keepInRange(this.data.funcs.keepInRange(pYear) + this.data.personalData.birthDate.day + this.data.personalData.birthDate.month)
+    this.shanaNisteret = this.data.funcs.keepInRange(this.personalYear + this.data.nativGoral - 1)
 
-  ngOnInit(): void {
-  }
-
-  refreshData(){
-    
+    this.shanaNisteretArr = []
+    this.shanaIshitArr.forEach((element) => {
+      this.shanaNisteretArr.push( this.data.funcs.keepInRange(element + this.data.nativGoral - 1))
+    });
   }
   
 

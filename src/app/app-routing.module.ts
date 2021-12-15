@@ -7,6 +7,7 @@ import { FormulaTest2Component } from './components/all-formulas/formulas/formul
 import { FormulaTest3Component } from './components/all-formulas/formulas/formula-test3/formula-test3.component';
 import { FormulaTest4Component } from './components/all-formulas/formulas/formula-test4/formula-test4.component';
 import { FormulaTest5Component } from './components/all-formulas/formulas/formula-test5/formula-test5.component';
+import { FormulaTest6Component } from './components/all-formulas/formulas/formula-test6/formula-test6.component';
 
 // const components = [
 //   FormulaBaseComponent,
@@ -24,7 +25,9 @@ const routes: Routes = [{
     { path: 'FormulaTest2', component: FormulaTest2Component },
     { path: 'FormulaTest3', component: FormulaTest3Component },
     { path: 'FormulaTest4', component: FormulaTest4Component },
-    { path: 'FormulaTest5', component: FormulaTest5Component }
+    { path: 'FormulaTest5', component: FormulaTest5Component },
+    { path: 'FormulaTest6', component: FormulaTest6Component }
+
   ]
 }
 
