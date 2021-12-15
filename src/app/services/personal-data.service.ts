@@ -59,7 +59,7 @@ export class PersonalDataService {
   setPersonalData(newPersonalData:PersonalData){
     this._personalData = newPersonalData;
     this.refreshCalculations()
-    this.buildLifePeriods()
+    this.lifePeriods = this.buildLifePeriods(this.personalData.birthDate.date)
     this._cb();
   }
 
@@ -102,15 +102,15 @@ export class PersonalDataService {
     
   }
 
-  buildLifePeriods(){
+  buildLifePeriods(bDate:Date){
 
-    let day = this.personalData.birthDate.day
-    let month = this.personalData?.birthDate?.month
-    let year = this.personalData?.birthDate?.year
+    let day = bDate.getDate()
+    let month = bDate.getMonth() + 1
+    let year = bDate.getFullYear()
 
 
-    this.lifePeriods = [];
-    this.lifePeriods.push(new LifePeriod('Meatsev',
+    let lifePeriods = [];
+    lifePeriods.push(new LifePeriod('Meatsev',
       0,
       36 - this.nativGoral,
       this.funcs.keepInRange(day + month),
@@ -118,29 +118,31 @@ export class PersonalDataService {
       this.funcs.keepInRange(month)
     ))
 
-    this.lifePeriods.push(new LifePeriod('Yotser1',
-      this.lifePeriods[0].end,
-      this.lifePeriods[0].end + 9,
+    lifePeriods.push(new LifePeriod('Yotser1',
+      lifePeriods[0].end,
+      lifePeriods[0].end + 9,
       this.funcs.keepInRange(day + year),
       Math.abs(this.funcs.keepInRange(day) - this.funcs.keepInRange(year)),
       this.funcs.keepInRange(day)
     ))
 
-    this.lifePeriods.push(new LifePeriod('Yotser2',
-      this.lifePeriods[1].end,
-      this.lifePeriods[1].end + 9,
-      this.funcs.keepInRange(this.lifePeriods[0].pisga + this.lifePeriods[1].pisga),
-      Math.abs(this.lifePeriods[0].etgar -this.lifePeriods[1].etgar),
+    lifePeriods.push(new LifePeriod('Yotser2',
+      lifePeriods[1].end,
+      lifePeriods[1].end + 9,
+      this.funcs.keepInRange(lifePeriods[0].pisga + lifePeriods[1].pisga),
+      Math.abs(lifePeriods[0].etgar -lifePeriods[1].etgar),
       this.funcs.keepInRange(day, 1, 9)
     ))
 
-    this.lifePeriods.push(new LifePeriod('Katsir',
-      this.lifePeriods[2].end,
+    lifePeriods.push(new LifePeriod('Katsir',
+      lifePeriods[2].end,
       120,
       this.funcs.keepInRange(month + year, 1, 9),
       Math.abs(this.funcs.keepInRange(month,1,9) - this.funcs.keepInRange(year,1,9)),
       this.funcs.keepInRange(year, 1, 9)
     ))
+
+    return lifePeriods;
   }
 
 
