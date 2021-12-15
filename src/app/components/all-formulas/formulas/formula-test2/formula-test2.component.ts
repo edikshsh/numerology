@@ -61,8 +61,10 @@ export class FormulaTest2Component implements OnInit {
 
     this.personalData = this.data.personalData
     this.gilBashlut = this.data.gilBashlut
-    this.shnotGoral = this.data.shnotGoral
+    this.shnotGoral = this.data.shnotGoral    
     this.gilGoraly = this.data.gilGoraly;
+    console.log(this.gilGoraly);
+
     this.bashlut = this.data.gilBashlut
     this.lifePeriods = this.data.lifePeriods;
 

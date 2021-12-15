@@ -90,6 +90,7 @@ export class PersonalDataService {
     this.kshaiim = this.funcs.keepInRange(bdate.month,1,9)
     this.kvutsatNeshamot = this.funcs.keepInRange(bdate.year)
 
+    this.gilGoraly = []
     this.gilGoraly.push(bdate.day)
     this.gilGoraly.push(bdate.day + bdate.month)
     this.gilGoraly.push(bdate.day + bdate.month + this.funcs.keepInRange(bdate.year))
