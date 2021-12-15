@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PersonalData } from 'src/app/models/personalData';
 import { PersonalDataService } from 'src/app/services/personal-data.service';
+import * as moment from 'moment';
 // import { MAT_DATE_FORMATS } from '@angular/material/core';
 
 // export const MY_DATE_FORMATS = {
@@ -26,21 +27,29 @@ import { PersonalDataService } from 'src/app/services/personal-data.service';
 })
 export class PersonalDataComponent implements OnInit {
 
+  get firstName() {return this.myForm.get('firstName')?.value as string}
+  get lastName() {return this.myForm.get('lastName')?.value as string}
+  get birthDate() {return this.myForm.get('birthDate')?.value as moment.Moment}
+
+  set firstName(firstName:string) {this.myForm.get('firstName')?.setValue(firstName)}
+  set lastName(lastName:string) {this.myForm.get('lastName')?.setValue(lastName)}
+  set birthDate(birthDate:moment.Moment) {this.myForm.get('birthDate')?.setValue(birthDate)}
+
   myForm!: FormGroup;
 
-  firstName: string;
-  lastName: string;
-  birthDate: Date;
-  personalDate: Date;
+  // firstName: string;
+  // lastName: string;
+  // birthDate: Date;
+  // personalDate: Date;
 
   personalData?: PersonalData;
 
 
   constructor(private _fb: FormBuilder, private personalDataService: PersonalDataService) {
-    this.firstName = '';
-    this.lastName = '';
-    this.birthDate = new Date()
-    this.personalDate = new Date()
+    // this.firstName = '';
+    // this.lastName = '';
+    // this.birthDate = new Date('05-05-1971')
+    // this.personalDate = new Date('05-05-1971')
 
    }
 
@@ -54,10 +63,10 @@ export class PersonalDataComponent implements OnInit {
    */
      private initForm() {
       this.myForm = this._fb.group({
-        firstName: this._fb.control(this.firstName,[]),
-        lastName: this._fb.control(this.lastName,[]),
-        birthDate: this._fb.control(this.birthDate, [Validators.required]),
-        personalDate: this._fb.control(this.personalDate, [Validators.required]),
+        firstName: this._fb.control('',[]),
+        lastName: this._fb.control('',[]),
+        birthDate: this._fb.control(moment('05-05-1971'), [Validators.required]),
+        // personalDate: this._fb.control(this.personalDate, [Validators.required]),
       });
 
       this.myForm.valueChanges.subscribe(val => {
@@ -70,7 +79,13 @@ export class PersonalDataComponent implements OnInit {
       // console.log(val.lastName);
       // console.log(val.birthDate);
       // console.log(val.personalDate);
-      this.personalData = new PersonalData(this.firstName, this.lastName, this.birthDate, this.personalDate)
+      console.log(`firstName = ${this.firstName}`);
+      console.log(`lastName = ${this.lastName}`);
+      console.log(`birthDate = ${this.birthDate}`);
+
+      this.personalData = new PersonalData(this.firstName, this.lastName, this.birthDate.toDate())
+
+      
       this.personalDataService.setPersonalData(this.personalData)
     }
 

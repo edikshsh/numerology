@@ -3,6 +3,7 @@ import { HelperFunctions } from '../models/helper-functions';
 import { LifePeriod } from '../models/life-period';
 import { PersonalData } from '../models/personalData';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -57,9 +58,11 @@ export class PersonalDataService {
   constructor() { }
 
   setPersonalData(newPersonalData:PersonalData){
+    console.log(`Got new data with bday=${newPersonalData.birthDate.day}`);
+    console.log(`Got new data ${newPersonalData.firstname} ${newPersonalData.lastname}`);
+
     this._personalData = newPersonalData;
     this.refreshCalculations()
-    this.lifePeriods = this.buildLifePeriods(this.personalData.birthDate.date)
     this._cb();
   }
 
@@ -98,7 +101,9 @@ export class PersonalDataService {
     this.gilBashlut = 27 - this.nativGoral
     this.shnotGoral = [45 - this.nativGoral, 50 - this.nativGoral];
 
-    console.log('personal data recalculated');
+    this.lifePeriods = this.buildLifePeriods(this.personalData.birthDate.date)
+
+    console.log('personal data recalculated, day = ' + bdate.day);
     
   }
 

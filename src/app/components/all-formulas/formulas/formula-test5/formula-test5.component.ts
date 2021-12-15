@@ -12,6 +12,9 @@ export class FormulaTest5Component implements OnInit {
   personalDate: Date
   shownDate:string
 
+  personalYear:number
+  shanaNisteret:number
+
   constructor(private data: PersonalDataService) {
 
     let currDate = new Date();
@@ -34,9 +37,16 @@ export class FormulaTest5Component implements OnInit {
     this.personalDate = new Date(pYear, pMonth, pDay);
     this.shownDate = moment(this.personalDate).format('DD.MM.YYYY')
     
+    this.personalYear = data.funcs.keepInRange(data.funcs.keepInRange(pYear) + data.personalData.birthDate.day + data.personalData.birthDate.month)
+    this.shanaNisteret = data.funcs.keepInRange(this.personalYear + data.nativGoral - 1)
    }
 
   ngOnInit(): void {
   }
+
+  refreshData(){
+    
+  }
+  
 
 }

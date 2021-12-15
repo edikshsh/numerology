@@ -13,6 +13,8 @@ export class HelpDate {
     private funcs = new HelperFunctions()
 
     constructor(public date:Date = new Date()){
+        console.log(this.date);
+        
         this._day = this.date.getDate();
         this._month = this.date.getMonth() + 1;
         this._year = this.date.getFullYear();
