@@ -20,7 +20,7 @@
                 <mat-label>birth date</mat-label>
                 <mat-datepicker-toggle matSuffix [for]="birthDatePicker"></mat-datepicker-toggle>
                 <mat-datepicker #birthDatePicker></mat-datepicker>
-                <input matInput [matDatepicker]='birthDatePicker' formControlName="birthDate">
+                <input matInput [min]='minDate' [max]='maxDate' [matDatepicker]='birthDatePicker' formControlName="birthDate">
             </mat-form-field><br>
 <!-- 
             <mat-form-field appearance='standard'>

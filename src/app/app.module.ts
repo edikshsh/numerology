@@ -14,6 +14,7 @@ import { PersonalDataComponent } from './components/personal-data/personal-data.
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {NgPipesModule} from 'angular-pipes'
 import {ScrollingModule} from '@angular/cdk/scrolling'
+import {NgChartsModule} from 'ng2-charts'
 
 import {PipesModule} from './pipes/pipes.module';
 import { FormulaListItemComponent } from './components/formula-list-item/formula-list-item.component';
@@ -28,6 +29,8 @@ import { LifePeriodTableRangeCellComponent } from './components/all-formulas/for
 import { PythagorasMatrixCellComponent } from './components/all-formulas/formulas/formula-test3/pythagoras-matrix-cell/pythagoras-matrix-cell.component';
 import { FormulaTest6Component } from './components/all-formulas/formulas/formula-test6/formula-test6.component';
 // import {FormulasModule} from './components/all-formulas/formulas.module'
+
+
 
 @NgModule({
   declarations: [
@@ -58,7 +61,8 @@ import { FormulaTest6Component } from './components/all-formulas/formulas/formul
     NgbModule,
     NgPipesModule,
     PipesModule,
-    ScrollingModule
+    ScrollingModule,
+    NgChartsModule
     ],
   providers: [],
   bootstrap: [AppComponent]

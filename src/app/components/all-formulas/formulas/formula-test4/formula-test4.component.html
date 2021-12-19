@@ -4,7 +4,7 @@
         <mat-label>Other birth date</mat-label>
         <mat-datepicker-toggle matSuffix [for]="otherBirthDatePicker"></mat-datepicker-toggle>
         <mat-datepicker #otherBirthDatePicker></mat-datepicker>
-        <input matInput [matDatepicker]='otherBirthDatePicker' formControlName="otherBirthDate">
+        <input [min]='minDate' [max]='maxDate' matInput [matDatepicker]='otherBirthDatePicker' formControlName="otherBirthDate">
     </mat-form-field><br>
 </form>
 

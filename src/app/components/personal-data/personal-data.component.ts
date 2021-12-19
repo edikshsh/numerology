@@ -35,6 +35,9 @@ export class PersonalDataComponent implements OnInit {
   set lastName(lastName:string) {this.myForm.get('lastName')?.setValue(lastName)}
   set birthDate(birthDate:moment.Moment) {this.myForm.get('birthDate')?.setValue(birthDate)}
 
+  minDate = new Date(100, 0, 1);
+  maxDate = new Date(9999, 0, 1); 
+
   myForm!: FormGroup;
 
   // firstName: string;
@@ -66,8 +69,11 @@ export class PersonalDataComponent implements OnInit {
         firstName: this._fb.control('',[]),
         lastName: this._fb.control('',[]),
         birthDate: this._fb.control(moment('05-05-1971'), [Validators.required]),
+        // birthDate: this._fb.control(moment('05-05-0110').subtract(120,'years'), [Validators.required]),
         // personalDate: this._fb.control(this.personalDate, [Validators.required]),
       });
+
+      moment('05-05-0110').subtract(120,'years').toDate()
 
       this.myForm.valueChanges.subscribe(val => {
         this.onDataChanged();
@@ -83,10 +89,12 @@ export class PersonalDataComponent implements OnInit {
       // console.log(`lastName = ${this.lastName}`);
       // console.log(`birthDate = ${this.birthDate}`);
 
-      this.personalData = new PersonalData(this.firstName, this.lastName, this.birthDate.toDate())
+      if (!this.myForm.errors && this.birthDate && this.birthDate.year() >= 1){
+        // if (!this.myForm.errors && this.birthDate){
+        this.personalData = new PersonalData(this.firstName, this.lastName, this.birthDate.toDate())    
+        this.personalDataService.setPersonalData(this.personalData)
+      }
 
-      
-      this.personalDataService.setPersonalData(this.personalData)
     }
 
 
